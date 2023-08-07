@@ -1,0 +1,24 @@
+ string vergi = Console.ReadLine();
+            switch (vergi)
+            {
+                case "kdv":
+                    Console.WriteLine("kdv ödediniz");
+                    break;
+                case "ötv":
+                    Console.WriteLine("ötv ödediniz");
+                    break;
+                case "mtv":
+                    Console.WriteLine("mtv ödediniz");
+                    break;
+                case "ltv":
+                    Console.WriteLine("ltv ödediniz + ötv de ödediniz");
+                    goto case "ötv";
+                        
+
+                    break;
+               
+
+
+                default:
+                    Console.WriteLine("vergi seçmelisiniz");
+                    break;

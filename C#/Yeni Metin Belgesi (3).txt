@@ -1,0 +1,11 @@
+ Console.Write("1. Sınav Notu: ");
+            float ilk = Convert.ToSingle(Console.ReadLine());
+            Console.Write("Proje: ");
+            float proje = Convert.ToSingle(Console.ReadLine());
+            Console.Write("2.Sınav Notu: ");
+            float son = Convert.ToSingle(Console.ReadLine());
+
+            float ortalama = (float)(ilk * 0.3) + (float)(proje * 0.2) + (float)(son * 0.5);
+            Console.WriteLine("\nNot Ortalamanız = " + ortalama);
+
+            Console.ReadLine();

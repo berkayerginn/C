@@ -1,0 +1,12 @@
+ Console.Write("takım");
+            string takim = Console.ReadLine();
+            switch (takim)
+            {
+                case "bjk":
+                    Console.WriteLine("kara kartal");
+                    break;
+                default:
+                    Console.WriteLine("4 büyük seçmediniz");
+                    break;
+
+            }

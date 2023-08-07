@@ -1,0 +1,34 @@
+using System;
+class EvHalki
+{
+    public int DogumYili;
+    public string Meslek;
+    public string Ad;
+    public string GozRengi;
+    public int Yas()
+    {
+        return 2022- DogumYili;
+    }
+    public void OzellikleriYaz()
+    {
+        Console.WriteLine("---------------");
+        Console.WriteLine("Adı: " + Ad);
+        Console.WriteLine("Yaşı: " + Yas());
+        Console.WriteLine("Mesleği: " + Meslek);
+        Console.WriteLine("Göz rengi: " + GozRengi);
+        Console.WriteLine("---------------");
+    }
+}
+class AnaProgram
+{
+    static void Main()
+    {
+        EvHalki annem = new EvHalki();
+        annem.DogumYili = 1964;
+        annem.Meslek = "Ev hanımı";
+        annem.Ad = "Hatice";
+        annem.GozRengi = "Mavi";
+        EvHalki babam = new EvHalki();
+        babam.OzellikleriYaz();
+    }
+}

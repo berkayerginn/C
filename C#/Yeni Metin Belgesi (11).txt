@@ -1,0 +1,10 @@
+Console.Write("sayı");
+            int sayi = Convert.ToInt32(Console.ReadLine());
+            int basamaksayisi = 0;
+            while (sayi != 0)
+            {
+                sayi /= 10;
+                basamaksayisi++;
+            }
+            Console.WriteLine("basamak " + basamaksayisi);
+            Console.ReadKey();

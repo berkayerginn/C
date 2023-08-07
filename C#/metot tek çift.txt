@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        //kullanıcıdan alınan iki sayıdan büyük olanı ekrana yazdıran program
+        static void Main(string[] args)
+        {
+            int sayi = sayial();
+            string tur = TurBul(sayi);
+            Yazdir(tur);
+            Console.ReadKey();
+        }
+        static int sayial()
+        {
+            Console.Write("sayı:");
+            int sayi = Convert.ToInt32(Console.ReadLine());
+            return sayi;
+        }
+        static string TurBul(int a)
+        {
+            if (a % 2 == 0)
+                return "çift";
+            else  
+                return "tek";
+        }
+        static void Yazdir(string t)
+        {
+            Console.WriteLine("Tür:" + t);
+        }
+    }
+}

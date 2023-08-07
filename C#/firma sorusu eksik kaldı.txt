@@ -1,0 +1,42 @@
+using System;
+class AnaProgram
+
+{
+    enum FirmaTurleri : byte { Eğitim = 1, Sağlık, Market, Dernek }
+    static void Main()
+    {
+        string firmaadi;
+        int kartutari;
+        FirmaTurleri firmaturu;
+
+        Console.Write("Firma adı:");
+        firmaadi = Console.ReadLine();
+        Console.Write("Kar Tutarı:");
+        kartutari = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Kurum seçiniz(1:Eğitim, 2:Sağlık, 3:Market, 4:Dernek) giriniz:");
+        firmaturu = (FirmaTurleri)Convert.ToByte(Console.ReadLine());
+        Console.ReadKey();
+
+        switch(firmaturu)
+        { 
+
+            case FirmaTurleri.Eğitim:
+            Console.WriteLine("{0} isimli kurumun vergi tutarı {1} TL'dir", firmaadi, kartutari * 0.08);
+            break;
+        case FirmaTurleri.Sağlık:
+            Console.WriteLine("{0} isimli kurumun vergi tutarı {1} TL'dir", firmaadi, kartutari * 0.01);
+            break;
+        case FirmaTurleri.Market:
+            Console.WriteLine("{0} isimli kurumun vergi tutarı {1} TL'dir", firmaadi, kartutari * 0.18);
+            break;
+        case FirmaTurleri.Dernek:
+            Console.WriteLine("{0} isimli kurumun vergi tutarı {1} TL'dir", firmaadi, kartutari * 0.08);
+            break;
+        }
+}
+
+
+}
+
+
+

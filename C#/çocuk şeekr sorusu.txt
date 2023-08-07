@@ -1,0 +1,62 @@
+
+using System;
+class AnaProgram
+{
+	static void Main()
+	{
+		Cocuk.sekerfiyati = 5;
+		Cocuk c1 = new Cocuk("bora");
+		Cocuk c2 = new Cocuk("leyla");
+		Cocuk c3 = new Cocuk("ali");
+
+		c1.HarclikVer(50);
+		c2.HarclikVer(100);
+		c3.HarclikVer(40);
+		c1.SekerAl(5);
+		c2.SekerAl(3);
+		c1.SekerAl(10);
+		c3.SekerAl(10);
+		c2.HarclikVer(200);
+		c1.DurumGor();
+		c2.DurumGor();
+		c3.DurumGor();
+		Console.ReadKey();
+	}
+
+}
+//harçlık alma ve şeker alma ile ilgili sınıf. 
+//mahallede çocuklar olacak. bu çocukların isimleri ve paraları var. çocuklara harçlık verilebilir veya çocuklar paralarıyla şeker alabilir.
+//şeker fiyatı tüm çocuklar için eşit ve 5 tl'dir. bununla ilgili sınıfı yazalım ve en az 3 çocuk nesnesi oluşturarak bu nesnelere harçlık al, şeker al gibi komutlar vererek. aldıkları şeker sayılarını ve ne kadar paraları olduğunu da gösterebilcek şekilde yazalım.
+class Cocuk
+{
+	string isim;
+	int para;
+	int sekeradeti;
+	public static int sekerfiyati;
+	public Cocuk(string name)
+	{
+		isim = name;
+		para = 0;
+	}
+
+	public void HarclikVer(int tutar)
+	{
+		para += tutar;
+	}
+	public void SekerAl(int adet)
+	{
+		if (para < sekerfiyati * adet)
+		{
+			Console.WriteLine("{0} adlı çocuk {1} adet şeker almak için yeterli paraya sahip değil", isim, adet);
+		}
+		else
+		{
+			sekeradeti += adet;
+			para -= sekerfiyati * adet;
+		}
+	}
+	public void DurumGor()
+	{
+		Console.WriteLine("{0} isimli çocuğun {1} lirası ve {2} şekeri var.", isim, para, sekeradeti);
+	}
+}

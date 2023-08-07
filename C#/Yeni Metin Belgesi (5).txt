@@ -1,0 +1,19 @@
+ Console.Write("kenar1");
+            int kenar1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("kenar2");
+            int kenar2 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("kenar3");
+            int kenar3 = Convert.ToInt32(Console.ReadLine());
+            if (kenar1 == kenar2 || kenar1 == kenar3 || kenar2 == kenar3)
+            {
+                Console.WriteLine("ikizkenar");
+            }
+            else
+            {
+                Console.WriteLine("İkizkenar değil");
+            }
+
+
+
+
+            Console.ReadKey();

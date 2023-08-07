@@ -1,0 +1,15 @@
+Console.Write("sayı:");
+            int sayi = Convert.ToInt32(Console.ReadLine());
+            if (sayi > 10)
+            {
+                Console.WriteLine("Girilen sayı 10 dan büyük");
+            }
+            else if (sayi < 10)
+            {
+                Console.WriteLine("Girilen sayı 10 dan küçük");
+            }
+            else
+            {
+                Console.WriteLine("Girilen sayı 10 a eşit");
+            }
+            Console.ReadKey();

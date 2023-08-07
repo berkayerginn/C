@@ -1,0 +1,41 @@
+
+
+static decimal buton1hiz;
+		static decimal buton2hiz;
+
+private void button3_Click(object sender, EventArgs e)
+		{
+			 buton1hiz = (decimal)numericUpDown1.Value;
+			 buton2hiz = (decimal)numericUpDown2.Value;
+
+			if (buton1hiz == 0)
+			{
+				decimal kesisimx = button2.Location.X;
+				decimal kesisimy = button1.Location.Y;
+				decimal birim = kesisimy / buton2hiz;
+				buton1hiz = (kesisimx - button1.Location.X) / birim;
+			}
+			if (buton2hiz == 0)
+			{
+				decimal kesisimy = button1.Location.Y;
+				decimal kesisimx = button2.Location.X;
+				decimal birim = kesisimx / buton1hiz;
+				buton2hiz = (kesisimy - button2.Location.Y) / birim;
+			}
+			timer1.Start();
+		}
+
+private void timer1_Tick(object sender, EventArgs e)
+		{
+			
+			Point pointButon1 = button1.Location;
+			pointButon1.X += (int)buton1hiz;
+			button1.Location = pointButon1;
+
+			Point pointButon2 = button2.Location;
+			pointButon2.Y += (int)buton2hiz;
+			button2.Location = pointButon2;
+		}
+
+
+

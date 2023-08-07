@@ -1,0 +1,32 @@
+   Console.Write("Bir sayı giriniz: ");
+            int gun = Convert.ToInt32(Console.ReadLine());
+            gun = (gun % 7);
+
+            switch (gun)
+            {
+                case 0:
+                    Console.Write("PAZARTESİ");
+                    break;
+                case 1:
+                    Console.Write("SALI");
+                    break;
+                case 2:
+                    Console.Write("ÇARŞAMBA");
+                    break;
+                case 3:
+                    Console.Write("PERŞEMBE");
+                    break;
+                case 4:
+                    Console.Write("CUMA");
+                    break;
+                case 5:
+                    Console.Write("CUMARTESİ");
+                    break;
+                case 6:
+                    Console.Write("PAZAR");
+                    break;
+               
+
+
+            }
+            Console.ReadKey();

@@ -1,0 +1,12 @@
+ Console.Write("Dizinin boyutunu giriniz: ");
+            int eleman_sayisi = Convert.ToInt32(Console.ReadLine());
+            int[] dizi = new int[eleman_sayisi];
+            int toplam = 0;
+            for (int i = 0; i < dizi.Length; i++)
+            {
+                Console.Write("Dizinin " + (i + 1) + ". elemanını giriniz: ");
+                dizi[i] = Convert.ToInt32(Console.ReadLine());
+                toplam = toplam + dizi[i];
+            }
+            Console.WriteLine("Dizideki sayıların toplamı = " + toplam);
+            Console.ReadLine();

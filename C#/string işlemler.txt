@@ -1,0 +1,38 @@
+using System;
+class AnaProgram
+{
+    static void Main()
+    {
+        string a = "deneme";//standart string oluşturma
+        char[] dizi = { 'a', 'b', 'c', 'd' };//her string bir karakter dizisidir demiştik.
+        String b = new String(dizi);//o halde new string diyerek içine diziyi koyarsak abcd stringi oluşur.
+        String c = new String(dizi, 1, 2); //dizi[1]'den itibaren 2 eleman stringe atandı. bc stringi oluşur
+        String d = new String('x', 50); //burada 50 tane x'in yan yana geldiği bir string oluşuyor. yani d="xxxx..."
+
+
+        string.Concat("test", "deneme", a);//concat içine aldığı parametreleri yan yana birleştirir. testdenemedeneme olur
+
+        int sonuc = string.Compare("ali", "veli");//ali alfabetik olarak veliden önce olduğundan -1
+        int sonuc2 = string.Compare("veli", "ali");//veli alfabetik olarak alide sonra olduğundan 1
+        int sonuc3 = string.Compare("ali", "ali");//eşit olduklarından 0
+
+        string s1 = "test";
+        string s2 = "bu bir testtir.";
+        string s3 = "bu bir denemedir.";
+        int sonuc4 = s2.IndexOf(s1);//s2'nin kaçıncı karakterinden itibaren test yazıyor. 7. karakterden itibaren. yani sonuç 7
+        int sonuc5 = s3.IndexOf(s1);//s3'nin kaçıncı karakterinden itibaren test yazıyor. yok. yani sonuç -1
+
+        //LastIndexOf ise son geçtiği yeri bulur. yani cümlemiz "bu bir test cümlesidir ve test içindir" ise test'in son geçtiği yeri gösterir.
+
+        string c1 = "deneme";
+        string c2 = "deneme cümlesi";
+        string c3 = "bu cümle bir deneme";
+        
+        Console.WriteLine(c2.StartsWith(c1));//c2 c1 ile mi başlıyor. true
+        Console.WriteLine(c3.StartsWith(c1));//c3 c1 ile mi başlıyor. false
+        Console.WriteLine(c2.EndsWith(c1));//c2 c1 ile mi bitiyor. false
+        Console.WriteLine(c3.EndsWith(c1));//c3 c1 ile mi bitiyor. true
+        Console.ReadKey();
+    }
+
+}

@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        //kullanıcıdan aklından bir sayı tutmasını isteyerek o sayıyı tahmin etmeye çalışan program yazıl.tahmin büyükse b küçükse k doğruysa d  
+        static void Main(string[] args)
+        {
+            Console.WriteLine("1-1000 Arasında Bir Sayı Tutacağım ve Senin Tahmin Etmeni Bekleyeceğim:");
+            Console.ReadKey();
+            TahminEt(1, 101);
+            Console.ReadKey();
+        }
+        static void TahminEt(int bas, int bit)
+        {
+            Random rnd = new Random();
+            int tahmin = rnd.Next(bas, bit);
+            KontrolEt(tahmin, bas, bit);
+        }
+        static void KontrolEt(int tahmin, int bas, int bit)
+        {
+            Console.Write("Tahmininiz" + tahmin + ".Doğru mu?");
+            string kontrol = Console.ReadLine();
+            if (kontrol == "d")
+            {
+                Console.WriteLine("Oyun bu kadar");
+            }
+            else if (kontrol == "k")
+            {
+                TahminEt(tahmin + 1, bit);
+            }
+            else if (kontrol == "b")
+            {
+                TahminEt(bas, tahmin);
+            }
+            else
+            {
+                KontrolEt(tahmin, bas, bit);
+            }
+        }
+    }
+}

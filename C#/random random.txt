@@ -1,0 +1,16 @@
+
+            Random random = new Random();
+            int number = random.Next(1, 10);
+            Console.WriteLine("Rastgele Sayı = " + number);
+
+            int sayi = 0;
+            for (int i = 1; i <= number; i++)
+            {
+                sayi = random.Next(1, 10);
+                Console.WriteLine(i + ". sayi = " + sayi);
+               
+               
+            }
+            
+
+            Console.ReadLine();

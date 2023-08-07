@@ -1,0 +1,26 @@
+  int[] dizi = new int[20];
+            int sum = 0;
+            for (int i = 1; i <= 20; i++)
+            {
+                Console.Write(i.ToString() + ". sayıyı giriniz:");
+                dizi[i - 1] = Convert.ToInt32(Console.ReadLine());
+
+            }
+
+            int step_count = 0;
+
+            foreach (int total in dizi)
+            {
+                if (step_count >= 5 && step_count < 15)
+                {
+
+                    sum += total;
+
+                }
+
+                step_count++;
+            }
+
+
+            Console.WriteLine("toplam:" + Convert.ToInt32(sum));
+            Console.ReadKey();

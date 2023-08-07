@@ -1,0 +1,42 @@
+using System;
+class Buton
+{
+    public int Genislik;
+    public int Yukseklik;
+    public void Ciz()
+    {
+        string[,] dizi = new string[Yukseklik + 2, Genislik + 3];
+        dizi[0, 0] = "╔";
+        dizi[0, Genislik + 1] = "╗";
+        dizi[Yukseklik + 1, 0] = "╚";
+        dizi[Yukseklik + 1, Genislik + 1] = "╝";
+        for (int i = 1; i < Genislik + 1; i++)
+        {
+            dizi[0, i] = "═";
+            dizi[Yukseklik + 1, i] = "═";
+        }
+        for (int i = 0; i <= Yukseklik; i++)
+            dizi[i, Genislik + 2] = "\n";
+        for (int i = 1; i <= Yukseklik; i++)
+        {
+            dizi[i, 0] = "║";
+            dizi[i, Genislik + 1] = "║";
+        }
+        for (int j = 1; j <= Yukseklik; j++)
+            for (int i = 1; i <= Genislik; i++)
+                dizi[j, i] = " ";
+        foreach (string i in dizi)
+            Console.Write(i);
+    }
+}
+class AnaProgram
+{
+    static void Main()
+    {
+        Buton buton1 = new Buton();
+        buton1.Genislik = 20;
+        buton1.Yukseklik = 13;
+        buton1.Ciz();
+        Console.ReadLine();
+    }
+}

@@ -1,0 +1,23 @@
+ static void Main(string[] args)
+        {
+            int sıralama = metot(5, 6 , 8);
+            Console.WriteLine("sıralama:" + sıralama);
+            Console.ReadKey();
+        }
+           static int metot(int a, int b, int c)
+        {
+            if ( a>b && a>c)
+            {
+                return a;
+
+            }
+            else if (b>c)
+            {
+                return b;
+            }
+            else
+            {
+                return c;
+            }
+        }
+        

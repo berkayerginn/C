@@ -1,0 +1,19 @@
+using System;
+class AnaProgram
+{
+    static void Main()
+    {
+        Console.Write("notlarınızı aralarına virgül koyarak giriniz:");
+        string notlar = Console.ReadLine();
+        string[] ayrilmisnotlar = notlar.Split(',');//split içine yazılan karaktere göre stringi keser ve bir string dizisi oluşturur.
+        int toplam = 0;
+        foreach (var item in ayrilmisnotlar)
+        {
+            int not = Convert.ToInt32(item);
+            toplam += not;
+        }
+        Console.WriteLine("Ortalama:"+(toplam/ ayrilmisnotlar.Length) );
+        Console.ReadKey();
+    }
+
+}

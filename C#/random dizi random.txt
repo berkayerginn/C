@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {             
+            static void Main(string[] args)
+            {
+                Random rnd = new Random();
+            int adet = rnd.Next(1, 21);
+                int[] sayilar = new int[adet];
+                for (int i = 0; i < sayilar.Length; i++)
+                {
+                    sayilar[i] = rnd.Next(1, 21);
+                }
+                Console.WriteLine("Dizi içindeki sayıların ortalaması :" + Ortalama(sayilar));                             
+                Console.ReadKey();
+            }           
+            public static double Ortalama(int[] dizi)
+            {
+                double ortalama = 0;
+                int toplam = 0;
+                for (int i = 0; i < dizi.Length; ++i)
+                { toplam += dizi[i]; }
+                ortalama = (double)toplam / dizi.Length;
+                return ortalama;
+            }
+        
+    }
+}

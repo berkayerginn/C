@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] elmalar = { 3, 4, -2, -1, 1, 2 };
+            int[] portakallar = { -5, -1, 4, 7, -2, 1 };
+            metot(5, 7, 3, 9, elmalar, portakallar);
+            Console.ReadKey();
+
+        }
+        static void metot(int t, int s, int a, int b, int[] elmalar, int[] portakallar)
+        {
+            int es = 0, ps = 0;
+            foreach (var elma in elmalar)
+            {
+                if (elma + a >= t && elma + a <= a)
+                    es++;
+            }
+            {
+                foreach (var portakal in portakallar)
+                {
+                    if (portakal + b >= t && portakal + a <= a)
+                        ps++;
+                }
+            }
+
+            Console.WriteLine("evin üzerinde {0} adet elma {1} adet portakal düşmüştür", es, ps); ;
+
+        }
+
+
+    }
+}

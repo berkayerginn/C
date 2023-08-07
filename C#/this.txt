@@ -1,0 +1,21 @@
+using System;
+class Dortgen
+{
+    public int En;
+    public int Boy;
+    void EnBoyBelirle(int En, int Boy)
+    {
+        this.En = En;
+        this.Boy = Boy;
+    }
+    static void Main()
+    {
+        Dortgen d1 = new Dortgen();
+        d1.EnBoyBelirle(20, 50);
+        Console.WriteLine(d1.En + "\n" + d1.Boy);
+
+        Dortgen d2 = new Dortgen();
+        d1.EnBoyBelirle(30, 70);
+        Console.WriteLine(d1.En + "\n" + d1.Boy);
+    }
+}

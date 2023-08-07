@@ -1,0 +1,10 @@
+a=a+b; yerine a+=b;
+a=a-b; yerine a-=b;
+a=a*b; yerine a*=b;
+a=a/b; yerine a/=b;
+a=a%b; yerine a%=b;
+a=a<<b; yerine a<<=b;
+a=a>>b; yerine a>>=b;
+a=a&b; yerine a&=b;
+a=a^b; yerine a^=b;
+a=a|b; yerine a|=b;

@@ -1,0 +1,122 @@
+using System;
+class AnaProgram
+{
+    static void Main()
+    {
+        Sinema.Baslangic();
+        Console.ReadKey();
+    }
+
+}
+enum IslemTurleri : byte { Cikis, BiletSat, BiletIade, DurumGor } //Cikis:0 biletal 1 biletiade2 durumgör 3 olur. otomatik olarak 0'dan başlar bir bir artar.
+enum BiletTurleri : byte { TamBilet = 1, OgrenciBileti, Geri = 9 } //ilk değer 0'dan başlıyordu. 1den başlatmak için =1 dedik. OgrenciBileti=2 demeye gerek yok çünkü değer verilmezse öncekinin bir fazlası olur. Eğer Geri=9 demeseydik gerinin değeri de 3 olurdu 
+class Sinema
+{
+    const int KoltukSayisi = 15;
+    const int TamBiletFiyati = 52;
+    const int OgrenciBiletFiyati = 46;
+    const double IadeOrani = 0.85;
+    static int SatilanOgrenciBileti = 0;
+    static int SatilanTamBileti = 0;
+    static double Bakiye = 0;
+    public static void Baslangic()
+    {
+        Console.Write("İşlem seçiniz(1:bilet sat, 2:bilet iade, 3:durum gör, 0:çıkış):");
+        IslemTurleri islemturu = (IslemTurleri)Convert.ToByte(Console.ReadLine());
+        if (islemturu == IslemTurleri.BiletSat)
+        {
+            if (KoltukSayisi > (SatilanTamBileti + SatilanOgrenciBileti))
+                BiletSat();
+            else
+                Console.Write("Boş koltuk bulunmamaktadır. Lütfen tekrar ");
+        }
+        else if (islemturu == IslemTurleri.BiletIade)
+        {
+            if (SatilanOgrenciBileti + SatilanTamBileti > 0)
+                BiletIade();
+            else
+                Console.Write("İade edilebilecek satılan koltuk bulunmamaktadır. Lütfen tekrar ");
+        }
+        else if (islemturu == IslemTurleri.DurumGor)
+        {
+            DurumGor();
+        }
+        else if (islemturu == IslemTurleri.Cikis)
+        {
+            Environment.Exit(0);
+        }
+        else
+        {
+            Console.Write("Hatalı işlem türü! Lütfen tekrar ");
+        }
+        Baslangic();
+    }
+    static void BiletSat()
+    {
+        Console.Write("Bilet Türü Giriniz(1:tam,2:öğrenci,9:Geri):");
+        BiletTurleri biletturu = (BiletTurleri)Convert.ToByte(Console.ReadLine());
+        if (biletturu == BiletTurleri.TamBilet)
+        {
+            SatilanTamBileti++;
+            Bakiye += TamBiletFiyati;
+        }
+        else if (biletturu == BiletTurleri.OgrenciBileti)
+        {
+            SatilanOgrenciBileti++;
+            Bakiye += OgrenciBiletFiyati;
+        }
+        else if (biletturu == BiletTurleri.Geri)
+        {
+            Baslangic();
+        }
+        else
+        {
+            Console.Write("Hatalı bilet türü! Lütfen tekrar ");
+            BiletSat();
+        }
+    }
+    static void BiletIade()
+    {
+        Console.Write("Bilet Türü Giriniz(1:tam,2:öğrenci,9:Geri):");
+        BiletTurleri biletturu = (BiletTurleri)Convert.ToByte(Console.ReadLine());
+        if (biletturu == BiletTurleri.TamBilet)
+        {
+            if (SatilanTamBileti > 0)
+            {
+                SatilanTamBileti--;
+                Bakiye -= TamBiletFiyati * IadeOrani;
+            }
+            else
+            {
+                Console.Write("Satılan tam bilet bulunmamaktadır. Lütfen tekrar ");
+                BiletIade();
+            }
+        }
+        else if (biletturu == BiletTurleri.OgrenciBileti)
+        {
+            if (SatilanOgrenciBileti > 0)
+            {
+                SatilanOgrenciBileti--;
+                Bakiye -= OgrenciBiletFiyati * IadeOrani;
+            }
+            else
+            {
+                Console.Write("Satılan öğrenci bileti bulunmamaktadır. Lütfen tekrar ");
+                BiletIade();
+            }
+        }
+        else if (biletturu == BiletTurleri.Geri)
+        {
+            Baslangic();
+        }
+        else
+        {
+            Console.Write("Hatalı bilet türü! Lütfen tekrar ");
+            BiletIade();
+        }
+    }
+    static void DurumGor()
+    {
+        Console.WriteLine("Satılan Tam Bilet:{0}\nSatılan Öğrenci Bileti:{1}\nBoş Koltuk Sayısı:{2}\nBakiye:{3}\n", SatilanTamBileti, SatilanOgrenciBileti, KoltukSayisi - (SatilanOgrenciBileti + SatilanTamBileti), Bakiye);
+    }
+}

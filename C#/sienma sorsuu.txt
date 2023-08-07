@@ -1,0 +1,120 @@
+using System;
+class AnaProgram
+{
+    static void Main()
+    {
+        Sinema.Baslangic();
+        Console.ReadKey();
+    }
+
+}
+class Sinema
+{
+    const int KoltukSayisi = 15;
+    const int TamBiletFiyati = 52;
+    const int OgrenciBiletFiyati = 46;
+    const double IadeOrani = 0.85;
+    static int SatilanOgrenciBileti = 0;
+    static int SatilanTamBileti = 0;
+    static double Bakiye = 0;
+    public static void Baslangic()
+    {
+        Console.Write("İşlem seçiniz(1:bilet al, 2:bilet iade, 3:durum gör, 0:çıkış):");
+        string islemturu = Console.ReadLine();
+        if (islemturu == "1")
+        {
+            if (KoltukSayisi > (SatilanTamBileti + SatilanOgrenciBileti))
+                BiletSat();
+            else
+                Console.Write("Boş koltuk bulunmamaktadır. Lütfen tekrar ");
+        }
+        else if (islemturu == "2")
+        {
+            if (SatilanOgrenciBileti + SatilanTamBileti > 0)
+                BiletIade();
+            else
+                Console.Write("İade edilebilecek satılan koltuk bulunmamaktadır. Lütfen tekrar ");
+        }
+        else if (islemturu == "3")
+        {
+            DurumGor();
+        }
+        else if (islemturu == "0")
+        {
+            Environment.Exit(0);
+        }
+        else
+        {
+            Console.Write("Hatalı işlem türü! Lütfen tekrar ");
+        }
+        Baslangic();
+    }
+    static void BiletSat()
+    {
+        Console.Write("Bilet Türü Giriniz(1:tam,2:öğrenci,9:Geri):");
+        string biletturu = Console.ReadLine();
+        if (biletturu == "1")
+        {
+            SatilanTamBileti++;
+            Bakiye += TamBiletFiyati;
+        }
+        else if (biletturu == "2")
+        {
+            SatilanOgrenciBileti++;
+            Bakiye += OgrenciBiletFiyati;
+        }
+        else if (biletturu == "9")
+        {
+            Baslangic();
+        }
+        else
+        {
+            Console.Write("Hatalı bilet türü! Lütfen tekrar ");
+            BiletSat();
+        }
+    }
+    static void BiletIade()
+    {
+        Console.Write("Bilet Türü Giriniz(1:tam,2:öğrenci,9:Geri):");
+        string biletturu = Console.ReadLine();
+        if (biletturu == "1")
+        {
+            if (SatilanTamBileti > 0)
+            {
+                SatilanTamBileti--;
+                Bakiye -= TamBiletFiyati * IadeOrani;
+            }
+            else
+            {
+                Console.Write("Satılan tam bilet bulunmamaktadır. Lütfen tekrar ");
+                BiletIade();
+            }
+        }
+        else if (biletturu == "2")
+        {
+            if (SatilanOgrenciBileti > 0)
+            {
+                SatilanOgrenciBileti--;
+                Bakiye -= OgrenciBiletFiyati * IadeOrani;
+            }
+            else
+            {
+                Console.Write("Satılan öğrenci bileti bulunmamaktadır. Lütfen tekrar ");
+                BiletIade();
+            }
+        }
+        else if (biletturu == "9")
+        {
+            Baslangic();
+        }
+        else
+        {
+            Console.Write("Hatalı bilet türü! Lütfen tekrar ");
+            BiletIade();
+        }
+    }
+    static void DurumGor()
+    {
+        Console.WriteLine("Satılan Tam Bilet:{0}\nSatılan Öğrenci Bileti:{1}\nBoş Koltuk Sayısı:{2}\nBakiye:{3}\n", SatilanTamBileti, SatilanOgrenciBileti, KoltukSayisi - (SatilanOgrenciBileti + SatilanTamBileti), Bakiye);
+    }
+}

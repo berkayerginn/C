@@ -1,0 +1,9 @@
+int toplam = 0, sayi = 1;
+            while (sayi != 0)
+            {
+                Console.Write("sayı:");
+                sayi = Convert.ToInt32(Console.ReadLine());
+                toplam += sayi;
+            }
+            Console.WriteLine("toplam:" + toplam);
+            Console.ReadKey();

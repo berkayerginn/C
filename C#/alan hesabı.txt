@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+            int taban = YukseklıkAl(5);
+            int yukseklık =YukseklıkAl(10)
+            double alan = AlanHesap(taban, yukseklık);
+            Yazdir(alan);
+            Console.ReadKey();
+        }
+        static int YukseklıkAl(int yukseklık)
+        {
+            Console.Write(yukseklık + . yukseklık);
+            int taban = Convert.ToInt32(Console.ReadLine());
+            return taban;
+        }
+        static double AlanHesap(int t, int h)
+        {
+           return  t  h  2d;
+        }
+        static void Yazdir(double alan)
+        {
+            Console.WriteLine(Üçgenin Alanı  + alan);
+        }
+    }
+}
